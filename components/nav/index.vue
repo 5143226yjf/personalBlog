@@ -51,6 +51,9 @@
     color: #ffffff;
     text-decoration: none;
   }
+  a:hover{
+    color: #efc14e;
+  }
   .nav-line{
     background: #fff;
     width: 100%;
