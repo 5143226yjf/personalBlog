@@ -5,6 +5,7 @@
   "author": "yangjinfeng <yangjinfeng@shuidihuzhu.com>",
   "private": true,
   "dependencies": {
+    "@types/js-base64": "^2.1.5",
     "nuxt": "latest"
   },
   "scripts": {

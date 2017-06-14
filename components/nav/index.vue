@@ -1,22 +1,36 @@
 <template>
     <div class="nav">
       <div class="nav-left">
+        <img src="./head-pic.jpeg" @click="show = !show"/>
         <nuxt-link to="/">主页</nuxt-link>
       </div>
       <div class="nav-right">
         <ul>
-          <li><a href="javascript:">日志</a></li>
+          <li><nuxt-link to="/addJournal">日志</nuxt-link></li>
           <li><a href="javascript:">心情</a></li>
-          <li><a href="javascript:">发表日志</a></li>
+          <li><nuxt-link to="/addJournal">发表日志</nuxt-link></li>
           <li><nuxt-link to="/addMood">发表心情</nuxt-link></li>
         </ul>
       </div>
       <div class="nav-line"></div>
+      <transition name="slide">
+        <div class="personal-info" v-if="show">
+          <PersonalInfo></PersonalInfo>
+        </div>
+      </transition>
     </div>
 </template>
 <script>
+  import PersonalInfo from '~components/personalInfo'
   export default {
-    props: []
+    components: {
+      PersonalInfo
+    },
+    data () {
+      return {
+        show: false
+      }
+    }
   }
 </script>
 <style scoped>
@@ -29,8 +43,13 @@
   .nav-left{
     float: left;
     width: 25%;
-    text-align: center;
     line-height: 50px;
+  }
+  .nav-left img{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin: 5px 20px;
   }
   .nav-right{
     float: left;
@@ -38,7 +57,7 @@
   }
   .nav-right ul{
     position: absolute;
-    right: 10%;
+    right: 5%;
     height: 50px;
     line-height: 50px;
   }
@@ -61,5 +80,20 @@
     position: absolute;
     top: 50px;
     opacity: 0.4;
+  }
+  .personal-info{
+    position: absolute;
+    top: 51px;
+    left: 0;
+  }
+  .slide-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-enter, .slide-leave-active {
+    transform: translateX(10px);
+    opacity: 0;
   }
 </style>

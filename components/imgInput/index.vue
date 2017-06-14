@@ -275,8 +275,8 @@
     <!-- 图片或文件选择后鼠标移入的提示-->
     <div class="img-inputer__mask" v-if="imgSelected && !noMask">
       <p class="img-inputer__file-name">{{fileName}}</p>
-      <p class="img-inputer__change" v-if="readonly">{{readonlyTipText}}</p>
-      <p class="img-inputer__change" v-else>{{bottomText}}</p>
+      <!--<p class="img-inputer__change" v-if="readonly">{{readonlyTipText}}</p>
+      <p class="img-inputer__change" v-else>{{bottomText}}</p>-->
     </div>
     <!-- input主体-->
     <input

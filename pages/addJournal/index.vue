@@ -1,24 +1,35 @@
 <template>
     <div class="add-journal">
-      <img src="./imgs/backgroun-1.png"/>
+      <div class="container-nav">
+        <Nav></Nav>
+      </div>
     </div>
 </template>
 <script>
+    import Nav from '~components/nav'
     export default {
-      props: []
+      components: {
+        Nav
+      }
     }
 </script>
 <style scoped>
   .add-journal{
+    background-color: rgb(191,234,215);
     width: 100%;
-    text-align: center;
-    background-color: rgb(249,190,171);
-    background-image: url(./imgs/background-2.png);
+    height: 810px;
+    background-image:url(./imgs/journal-pic.png);
     background-repeat: no-repeat;
-    background-size: contain;
-    padding-top: 14px;
+    background-size: 100%;
+    position: relative;
   }
-  .add-journal img{
-    width: 90%;
+  .container-nav{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgb(131,186,183);
+    filter:alpha(opacity=50);
+    background:rgba(131,186,183,0.5) none repeat scroll 0 0 !important;
   }
+
 </style>

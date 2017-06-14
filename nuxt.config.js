@@ -3,14 +3,14 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: '个人博客',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: '基于nuxt的一个个人博客' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/personal.ico' }
     ]
   },
   /*

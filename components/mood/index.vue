@@ -58,6 +58,7 @@
     width: 90%;
     margin: 0 auto;
     clear: both;
+    padding-left: 0;
   }
   .mood-list{
     display: inline-block;
@@ -84,6 +85,9 @@
     height: 163px;
     float: right;
     margin: 20px;
+  }
+  .mood-content p{
+    padding-top: 10px;
   }
   .mood-time{
     position: absolute;
