@@ -1,17 +1,21 @@
 <template>
     <div class="info">
       <ul>
-        <li class="info-list">姓名: lethe</li>
-        <li class="info-list">生日: 1995-08-16</li>
-        <li class="info-list">电话: 18716037958</li>
-        <li class="info-list">邮箱: 1443646652@qq.com</li>
+        <li class="info-list">姓名: {{ info.name }}</li>
+        <li class="info-list">生日: {{ info.birthday }}</li>
+        <li class="info-list">电话: {{ info.tel }}</li>
+        <li class="info-list">邮箱: {{ info.email }}</li>
         <li class="info-btn"><nuxt-link to="/reviseInfo">修改信息</nuxt-link></li>
       </ul>
     </div>
 </template>
 <script>
     export default {
-      props: []
+      data () {
+        return {
+          info: this.$store.state.info
+        }
+      }
     }
 </script>
 <style scoped>

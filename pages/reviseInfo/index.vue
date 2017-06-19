@@ -5,36 +5,108 @@
       </div>
       <div class="revise-info-content">
         <div class="head-pic">
-          <img :src="imgURL"/>
-          <label>选择图片上传<input type="file" class="img-upload"></label>
+          <img :src="imgUrl"/>
+          <label>选择图片上传
+            <picture-input
+              ref="pictureInput"
+              @change="onChange"
+              width="200"
+              height="200"
+              accept="image/jpeg,image/png"
+              size="10"
+              buttonClass="btn">
+            </picture-input>
+            <!--<input type="file" class="img-upload" ref="img" @changle="handleFileChange">-->
+          </label>
         </div>
         <div class="container">
-          <div class="container-list" v-for="data in reviseList">
-            <label>{{ data }}:</label>
-            <input type="text"/>
+          <div class="container-list">
+            <label>姓名:</label>
+            <input type="text" :value="info.name" ref="username"/>
+          </div>
+          <div class="container-list">
+            <label>电话:</label>
+            <input type="text" :value="info.tel" ref="tel"/>
+          </div>
+          <div class="container-list">
+            <label>邮箱:</label>
+            <input type="text" :value="info.email" ref="email"/>
           </div>
           <div class="container-list">
             <label>生日:</label>
-            <input type="date"/>
+            <input type="date" :value="info.birthday" ref="birthday"/>
           </div>
           <div class="container-list">
-            <button>确认修改</button>
+            <button @click="revise">确认修改</button>
           </div>
         </div>
       </div>
     </div>
 </template>
 <script>
-  import img from './head-pic.jpeg'
   import Nav from '~components/nav'
+  import PictureInput from 'vue-picture-input'
+
   export default {
     components: {
-      Nav
+      Nav,
+      PictureInput
     },
     data () {
       return {
-        imgURL: img,
-        reviseList: ['姓名', '电话', '邮箱']
+        imgUrl: this.$store.state.info.img,
+        info: this.$store.state.info,
+        file: []
+      }
+    },
+    methods: {
+      /*  imgPreview (file) {
+        let self = this
+
+        if (!file || !window.FileReader) return
+
+        if (/^image/.test(file.type)) {
+          var reader = new FileReader()
+          reader.readAsDataURL(file)
+
+          reader.onloadend = function () {
+            self.imgUrl = this.result
+            console.log(this.result)
+          }
+        }
+      },
+      handleFileChange (e) {
+        if (typeof e.target === 'undefined') this.file = e[0]
+        else this.file = e.target.files[0]
+        this.imgPreview(this.file)
+      },  */
+      onChange () {
+        console.log('New picture selected!')
+        if (this.$refs.pictureInput.image) {
+          console.log(this.$refs.pictureInput.image)
+          this.imgUrl = this.$refs.pictureInput.image
+        } else {
+          console.log('FileReader API not supported: use the <form>, Luke!')
+        }
+      },
+      revise (e) {
+        e.preventDefault()
+        let img = this.$refs.pictureInput.image
+        let name = this.$refs.username.value
+        let tel = this.$refs.tel.value
+        let email = this.$refs.email.value
+        let birthday = this.$refs.birthday.value
+
+        let personInfo = {
+          img: img,
+          name: name,
+          tel: tel,
+          email: email,
+          birthday: birthday
+        }
+        console.log(img)
+        this.$store.state.info = personInfo
+        console.log(this.$store.state.info)
       }
     }
   }
@@ -59,6 +131,10 @@
   }
   .head-pic{
     float: left;
+  }
+  .head-pic img{
+    width: 200px;
+    height: 200px;
   }
   .head-pic label{
     height: 30px;
@@ -106,5 +182,8 @@
     border-radius: 20px;
     outline:none;
     cursor: pointer;
+  }
+  .picture-input{
+    opacity: 0;
   }
 </style>

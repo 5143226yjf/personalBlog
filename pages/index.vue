@@ -11,6 +11,7 @@
     </div>
     <Mood></Mood>
     <Journal></Journal>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -18,11 +19,13 @@
   import Nav from '~components/nav/index.vue'
   import Mood from '~components/mood/index.vue'
   import Journal from '~components/journal/index.vue'
+  import Footer from '~components/footer/index.vue'
   export default {
     components: {
       Nav,
       Mood,
-      Journal
+      Journal,
+      Footer
     }
   }
 </script>

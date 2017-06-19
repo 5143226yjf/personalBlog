@@ -6,7 +6,8 @@
   "private": true,
   "dependencies": {
     "@types/js-base64": "^2.1.5",
-    "nuxt": "latest"
+    "nuxt": "latest",
+    "vue-picture-input": "^1.12.1"
   },
   "scripts": {
     "dev": "nuxt",

@@ -215,6 +215,7 @@
 
           reader.onloadend = function () {
             self.dataUrl = this.result;
+            console.log(this.result)
             localStorage.setItem("imgUrl", self.dataUrl)
           }
 

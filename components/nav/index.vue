@@ -1,12 +1,12 @@
 <template>
     <div class="nav">
       <div class="nav-left">
-        <img src="./head-pic.jpeg" @click="show = !show"/>
+        <img :src="imgSrc" @click="show = !show"/>
         <nuxt-link to="/">主页</nuxt-link>
       </div>
       <div class="nav-right">
         <ul>
-          <li><nuxt-link to="/addJournal">日志</nuxt-link></li>
+          <li><a href="javascript:">日志</a></li>
           <li><a href="javascript:">心情</a></li>
           <li><nuxt-link to="/addJournal">发表日志</nuxt-link></li>
           <li><nuxt-link to="/addMood">发表心情</nuxt-link></li>
@@ -28,8 +28,31 @@
     },
     data () {
       return {
-        show: false
+        show: false,
+        imgSrc: this.$store.state.info.img
       }
+    },
+    methods: {
+     /* backToMood () {
+        console.log('hahha', this.$router.path)
+        if (this.$router.path === '/') {
+          console.log(this.$router.path)
+          window.scrollBy(0, 860)
+        } else {
+          window.location.href = '/'
+          window.scrollBy(0, 860)
+        }
+      },
+      backToJournal () {
+        if (this.$router.path === '/') {
+          console.log(this.$router.path)
+          window.scrollBy(0, 860)
+        } else {
+          window.location.href = '/'
+          // window.scrollBy(0, 860)
+          window.body.scrollTop = 810
+        }
+      }  */
     }
   }
 </script>
