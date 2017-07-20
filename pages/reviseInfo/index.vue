@@ -39,18 +39,24 @@
           <div class="container-list">
             <button @click="revise">确认修改</button>
           </div>
+          <div class="show-msg">
+            <Message :tip="tip" :isMsg="isMsg"></Message>
+          </div>
         </div>
       </div>
+
     </div>
 </template>
 <script>
   import Nav from '~components/nav'
   import PictureInput from 'vue-picture-input'
+  import Message from '~components/showMsg'
 
   export default {
     components: {
       Nav,
-      PictureInput
+      PictureInput,
+      Message
     },
     data () {
       return {
@@ -106,6 +112,9 @@
         }
         console.log(img)
         this.$store.state.info = personInfo
+        this.tip = '修改信息成功'
+        this.isMsg = true
+        setTimeout(() => { this.isMsg = false }, 1500)
         console.log(this.$store.state.info)
       }
     }
@@ -185,5 +194,12 @@
   }
   .picture-input{
     opacity: 0;
+  }
+  .show-msg{
+    position: absolute;
+    top: 200px;
+    right: 0;
+    width: auto;
+    height: 0;
   }
 </style>

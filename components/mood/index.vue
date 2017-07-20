@@ -1,5 +1,5 @@
 <template>
-    <div class="mood">
+    <div class="mood" id="mood">
       <div class="mood-header">
         <h2>My mood</h2>
         <div class="mood-header-line"></div>

@@ -15,14 +15,25 @@
           <button class="right-btn" @click="clear">取消</button>
         </div>
       </div>
+      <div class="show-msg">
+        <Message :tip="tip" :isMsg="isMsg"></Message>
+      </div>
     </div>
 </template>
 <script>
     import Nav from '~components/nav'
+    import Message from '~components/showMsg'
 
     export default {
+      data () {
+        return {
+          isMsg: false,
+          tip: ''
+        }
+      },
       components: {
-        Nav
+        Nav,
+        Message
       },
       methods: {
         addJournal () {
@@ -33,6 +44,9 @@
             content: this.$refs.content.value
           }
           this.$store.commit('addJournal', data)
+          this.tip = '添加日志成功！'
+          this.isMsg = true
+          setTimeout(() => { this.isMsg = false }, 1500)
         },
         clear () {
           this.$refs.title.value = ''
@@ -75,7 +89,7 @@
     background:rgba(131,186,183,0.5) none repeat scroll 0 0 !important;
   }
   .add-journal-container{
-    width: 70%;
+    width: 80%;
     margin:0 auto;
     padding: 100px 0;
   }
@@ -135,6 +149,13 @@
   .right-btn{
     margin-left: 200px;
     float: right;
+  }
+  .show-msg{
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: auto;
+    height: 0;
   }
 
 </style>

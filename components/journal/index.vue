@@ -1,5 +1,5 @@
 <template>
-  <div class="journal">
+  <div class="journal" id="journal">
     <div class="journal-header">
       <h2>My journal</h2>
       <div class="journal-header-line"></div>

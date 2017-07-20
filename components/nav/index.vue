@@ -6,8 +6,8 @@
       </div>
       <div class="nav-right">
         <ul>
-          <li><a href="javascript:">日志</a></li>
-          <li><a href="javascript:">心情</a></li>
+          <li><a href="/#journal">日志</a></li>
+          <li><a href="/#mood">心情</a></li>
           <li><nuxt-link to="/addJournal">发表日志</nuxt-link></li>
           <li><nuxt-link to="/addMood">发表心情</nuxt-link></li>
         </ul>
